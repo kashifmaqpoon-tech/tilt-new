@@ -1,0 +1,1 @@
+TILT v6 - Static site generated. Replace images in assets/images as needed.

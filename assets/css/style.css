@@ -1,0 +1,51 @@
+
+:root{--black:#000;--red:#E50914;--light:#F5F5F5;--muted:#bdbdbd}
+*{box-sizing:border-box}html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;color:var(--light);background:var(--black)}
+a{color:var(--light);text-decoration:none}
+.header{position:fixed;top:18px;left:24px;right:24px;display:flex;justify-content:space-between;align-items:center;z-index:60}
+.brand img{height:110px;display:block}
+.nav{display:flex;gap:18px;align-items:center}
+.btn{padding:12px 18px;border-radius:8px;font-weight:700;cursor:pointer;border:0}
+.btn-red{background:var(--red);color:var(--light);box-shadow:0 6px 18px rgba(229,9,20,0.12);transition:transform .22s ease}
+.btn-dark{background:#111;color:var(--light);border:1px solid rgba(255,255,255,0.04)}
+
+.hero{height:88vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:0 6vw;margin-top:20px}
+.slider{position:absolute;inset:0;z-index:0;overflow:hidden}
+.slides{height:100%;display:flex;transition:transform .8s cubic-bezier(.2,.9,.2,1);width:300%}
+.slide{flex:0 0 100%;background-size:cover;background-position:center center}
+.slider-prev,.slider-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.5);border:0;color:#fff;padding:10px 12px;border-radius:6px;cursor:pointer;z-index:5}
+.slider-prev{left:18px}.slider-next{right:18px}
+.slider-dots{position:absolute;left:50%;transform:translateX(-50%);bottom:18px;display:flex;gap:8px;z-index:5}
+.slider-dots button{width:10px;height:10px;border-radius:50%;border:0;background:rgba(255,255,255,0.4);cursor:pointer}
+.slider-dots button.active{background:var(--red)}
+
+.hero .overlay{position:absolute;inset:0;background:linear-gradient(120deg, rgba(0,0,0,0.45), rgba(0,0,0,0.6));z-index:1}
+.hero .content{position:relative;z-index:2;max-width:960px;margin-left:40px;transform:skewY(-6deg);}
+.hero h1{font-family:'Bebas Neue', 'Poppins', sans-serif;font-size:56px;letter-spacing:1px;margin:0 0 16px;color:var(--light);line-height:1.02}
+.hero p{color:var(--muted);font-size:18px;margin:0 0 22px}
+
+.section{padding:64px 6vw}
+.section.light{background:#080808}
+
+.home-services{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;align-items:stretch}
+.service-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:12px;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.03);display:flex;flex-direction:column;justify-content:flex-start;transition:transform .35s ease,box-shadow .35s ease}
+.service-card img{width:100%;height:220px;object-fit:cover;border-radius:8px;margin-bottom:12px}
+.service-card:hover{transform:translateY(-8px) scale(1.01);box-shadow:0 18px 40px rgba(0,0,0,0.5)}
+
+.portfolio-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.work-tile{position:relative;overflow:hidden;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,0.12);transition:box-shadow .3s ease, transform .3s ease}
+.work-tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .36s cubic-bezier(.2,.9,.2,1)}
+.work-tile:hover img{transform:scale(1.06)}
+.work-tile:hover{box-shadow:0 22px 60px rgba(0,0,0,0.2);transform:translateY(-6px)}
+.overlay-txt{position:absolute;left:10px;bottom:10px;background:rgba(0,0,0,0.55);padding:6px 10px;border-radius:6px;font-size:13px}
+
+.counters{display:flex;gap:24px;align-items:center;justify-content:flex-start;margin-top:20px}
+.counter{min-width:120px;text-align:center}
+.counter .num{font-size:34px;font-weight:800;color:var(--light)}
+.counter .label{font-size:14px;color:var(--muted)}
+
+.footer{padding:48px 6vw;background:#000;border-top:1px solid rgba(255,255,255,0.03);display:flex;justify-content:space-between;align-items:center;gap:18px}
+
+@media (max-width:1100px){.portfolio-grid{grid-template-columns:repeat(4,1fr)}}
+@media (max-width:900px){.portfolio-grid{grid-template-columns:repeat(3,1fr)} .hero h1{font-size:42px} .service-card img{height:180px}}
+@media (max-width:600px){.portfolio-grid{grid-template-columns:repeat(2,1fr)} .hero h1{font-size:32px} .brand img{height:84px}}
