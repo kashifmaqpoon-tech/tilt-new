@@ -34,25 +34,25 @@
     </div>
     <div style="margin-top:14px"><a href="services.html" class="btn btn-red">View All Services →</a></div>
   </div>
-</section>
 
+<!-- ✅ New Project Slider (no conflict with hero slider) -->
 <section class="section">
-  <div style="max-width:1200px;margin:0 auto">
-    <h2>Featured Projects</h2>
-    <p style="color:var(--muted)">A glimpse of how we tilt perspectives and move ideas forward.</p>
-    <div class="featured-grid" style="margin-top:18px">
-      <div class="featured-item reveal" style="background-image:url('assets/images/extra-04.png')">
-        <div class="tag"><strong>Redefining Game Day</strong><div style="opacity:.9">An immersive sports campaign</div></div>
-      </div>
-      <div class="featured-item reveal" style="background-image:url('assets/images/extra-02.png')">
-        <div class="tag"><strong>From Scroll to Sale</strong><div style="opacity:.9">Social reinvention for e‑commerce</div></div>
-      </div>
-      <div class="featured-item reveal" style="background-image:url('assets/images/extra-03.png')">
-        <div class="tag"><strong>Brand Film Series</strong><div style="opacity:.9">Cinematic storytelling</div></div>
-      </div>
+
+  <div class="project-slider">
+    <div class="project-slides">
+      <div class="project-slide" style="background-image:url('assets/images/slide1.jpg')"></div>
+      <div class="project-slide" style="background-image:url('assets/images/slide2.jpg')"></div>
+      <div class="project-slide" style="background-image:url('assets/images/slide3.jpg')"></div>
+      <div class="project-slide" style="background-image:url('assets/images/slide4.jpg')"></div>
+      <div class="project-slide" style="background-image:url('assets/images/slide5.jpg')"></div>
     </div>
+
+    <button class="project-prev">‹</button>
+    <button class="project-next">›</button>
+    <div class="project-dots"></div>
   </div>
 </section>
+
 
 <section class="section light">
   <div style="max-width:1200px;margin:0 auto">
@@ -98,4 +98,33 @@
 </footer>
 
 <script src="assets/js/main.js"></script>
+<script>
+const slides = document.querySelectorAll('.project-slide');
+const total = slides.length;
+const slidesContainer = document.querySelector('.project-slides');
+const dotsContainer = document.querySelector('.project-dots');
+let index = 0;
+
+// create dots
+slides.forEach((_, i) => {
+  const btn = document.createElement('button');
+  if (i === 0) btn.classList.add('active');
+  btn.addEventListener('click', () => showSlide(i));
+  dotsContainer.appendChild(btn);
+});
+const dots = dotsContainer.querySelectorAll('button');
+
+function showSlide(i) {
+  index = (i + total) % total;
+  slidesContainer.style.transform = `translateX(-${index * 100}%)`;
+  dots.forEach(d => d.classList.remove('active'));
+  dots[index].classList.add('active');
+}
+
+document.querySelector('.project-prev').addEventListener('click', () => showSlide(index - 1));
+document.querySelector('.project-next').addEventListener('click', () => showSlide(index + 1));
+
+setInterval(() => showSlide(index + 1), 5000);
+</script>
+
 </body></html>

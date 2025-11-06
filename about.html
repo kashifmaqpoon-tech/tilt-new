@@ -1,24 +1,349 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Who We Are — TILT</title><link rel="stylesheet" href="assets/css/style.css"></head><body><header class="header"><div class="brand"><img src="https://8upload.com/image/6906889b4bd0d/tilt_white.png" alt="TILT logo"></div><nav class="nav"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="work.html">Work</a><a href="contact.html" class="btn btn-dark">Contact</a></nav></header>
-<main style="padding-top:120px">
-<section class="hero" style="height:60vh">
-  <div class="slider" style="display:none"></div>
-  <div class="overlay"></div>
-  <div class="content reveal"><h1>Who We Are</h1></div>
-</section>
-<section class="section light">
-  <div style="max-width:1000px;margin:auto">
-    <p>At TILT, we are a digital creative agency built to move brands forward. We believe in tilting perspectives — breaking away from the ordinary to craft bold stories, meaningful experiences, and digital strategies that inspire connection and growth.</p>
-    <p>We unite creative strategy, design excellence, and digital execution under one roof to deliver seamless, end-to-end brand experiences.</p>
-    <div class="counters reveal">
-      <div class="counter"><div class="num" data-target="30">0</div><div class="label">Brands</div></div>
-      <div class="counter"><div class="num" data-target="200">0</div><div class="label">Projects</div></div>
-      <div class="counter"><div class="num" data-target="10">0</div><div class="label">Years Experience</div></div>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Who We Are — TILT</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+    /* --- ABOUT PAGE RESPONSIVE FIXES --- */
+    body {
+      padding-top: 100px; /* keeps content below fixed header */
+    }
+
+    .hero {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    .hero img {
+      width: 100%;
+      height: 60vh;
+      object-fit: cover;
+      display: block;
+      border-bottom: 2px solid rgba(255,255,255,0.1);
+    }
+
+    .hero .content {
+      position: relative;
+      z-index: 2;
+      margin-top: -80px; /* lift text slightly over image */
+      background: rgba(0,0,0,0.6);
+      padding: 20px 30px;
+      border-radius: 12px;
+      max-width: 90%;
+    }
+
+    .hero h1 {
+      font-family: 'Bebas Neue', 'Poppins', sans-serif;
+      font-size: 56px;
+      color: var(--light);
+      margin: 0;
+      line-height: 1.1;
+    }
+
+    /* --- About content section --- */
+    .section.light {
+      background: #080808;
+      color: var(--light);
+      padding: 60px 6vw;
+    }
+
+    .section.light p {
+      font-size: 18px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    .section.light h3 {
+      font-size: 28px;
+      margin-top: 40px;
+      color: var(--light);
+    }
+
+    blockquote {
+      border-left: 4px solid var(--red);
+      padding-left: 14px;
+      font-size: 20px;
+      color: #ccc;
+      margin-top: 28px;
+    }
+
+    /* --- Counters layout --- */
+    .counters {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .counter {
+      min-width: 120px;
+      text-align: center;
+    }
+
+    .counter .num {
+      font-size: 34px;
+      font-weight: 800;
+      color: var(--light);
+    }
+
+    .counter .label {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* --- Responsive tweaks --- */
+    @media (max-width: 900px) {
+      body {
+        padding-top: 110px;
+      }
+
+      .hero img {
+        height: 45vh;
+      }
+
+      .hero .content {
+        margin-top: -60px;
+        padding: 16px 20px;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .section.light p {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero img {
+        height: 40vh;
+      }
+
+      .hero .content {
+        margin-top: -50px;
+        padding: 14px 16px;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="brand">
+      <img src="https://8upload.com/image/6906889b4bd0d/tilt_white.png" alt="TILT logo">
     </div>
-    <h3>Why TILT is Different</h3>
-    <p>Most organizations juggle multiple creative vendors — designers, editors, agencies, and social media teams — leading to inconsistent messaging and slow execution. TILT solves that by bringing everything together under one roof.</p>
-    <blockquote style="border-left:4px solid #E50914;padding-left:12px;margin-top:24px;font-size:20px;color:#ccc">“We don’t just build awareness — we build outcomes.”</blockquote>
-  </div>
-</section>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="work.html">Work</a>
+      <a href="contact.html" class="btn btn-dark">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+  <section class="about-hero">
+    <img src="assets/images/about-hero.png" alt="About TILT">
+    <div class="about-hero-content reveal">
+      <h1>Who We Are</h1>
+    </div>
+  </section>
+
+  <section class="section light">
+    <div style="max-width:1000px;margin:auto">
+      <p>At TILT, we are a new-age digital creative agency built to move brands forward. We believe in tilting perspectives — breaking away from the ordinary to craft bold stories, impactful visuals, and digital experiences that inspire growth.</p>
+
+      <p>We bring branding, sports coverage, digital content, design manipulation, AI creativity, and strategy together under one roof — powered by the talented Digibolt team, known for delivering world-class designs for top national and international brands.</p>
+
+      <div class="counters reveal">
+        <div class="counter"><div class="num" data-target="30">0</div><div class="label">Brands</div></div>
+        <div class="counter"><div class="num" data-target="1000">0</div><div class="label">Designs</div></div>
+        <div class="counter"><div class="num" data-target="12">0</div><div class="label">Years Experience</div></div>
+      </div>
+
+      <h3>Why TILT is Different</h3>
+      <p>No more juggling freelancers or agencies — TILT unites the best creators under one platform to deliver seamless, end-to-end brand experiences.</p>
+
+      <blockquote>“We don’t just build awareness — we build outcomes.”</blockquote>
+    </div>
+  </section>
 </main>
-<footer class="footer"><div><strong>Let’s build what’s next — together.</strong></div> <div style="opacity:.9;margin-top:10px">Start a Project — <a href="contact.html">hello@JustTilt.com</a></div> </footer>
-<script src="assets/js/main.js"></script></body></html>
+
+
+  <footer class="footer">
+    <div>
+      <strong>Let’s build what’s next — together.</strong>
+      <div style="opacity:.9;margin-top:10px">
+        Start a Project — <a href="contact.html">hello@JustTilt.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Who We Are — TILT</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+    /* --- ABOUT PAGE RESPONSIVE FIXES --- */
+    body {
+      padding-top: 100px; /* keeps content below fixed header */
+    }
+
+    .hero {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    .hero img {
+      width: 100%;
+      height: 60vh;
+      object-fit: cover;
+      display: block;
+      border-bottom: 2px solid rgba(255,255,255,0.1);
+    }
+
+    .hero .content {
+      position: relative;
+      z-index: 2;
+      margin-top: -80px; /* lift text slightly over image */
+      background: rgba(0,0,0,0.6);
+      padding: 20px 30px;
+      border-radius: 12px;
+      max-width: 90%;
+    }
+
+    .hero h1 {
+      font-family: 'Bebas Neue', 'Poppins', sans-serif;
+      font-size: 56px;
+      color: var(--light);
+      margin: 0;
+      line-height: 1.1;
+    }
+
+    /* --- About content section --- */
+    .section.light {
+      background: #080808;
+      color: var(--light);
+      padding: 60px 6vw;
+    }
+
+    .section.light p {
+      font-size: 18px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    .section.light h3 {
+      font-size: 28px;
+      margin-top: 40px;
+      color: var(--light);
+    }
+
+    blockquote {
+      border-left: 4px solid var(--red);
+      padding-left: 14px;
+      font-size: 20px;
+      color: #ccc;
+      margin-top: 28px;
+    }
+
+    /* --- Counters layout --- */
+    .counters {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .counter {
+      min-width: 120px;
+      text-align: center;
+    }
+
+    .counter .num {
+      font-size: 34px;
+      font-weight: 800;
+      color: var(--light);
+    }
+
+    .counter .label {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* --- Responsive tweaks --- */
+    @media (max-width: 900px) {
+      body {
+        padding-top: 110px;
+      }
+
+      .hero img {
+        height: 45vh;
+      }
+
+      .hero .content {
+        margin-top: -60px;
+        padding: 16px 20px;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .section.light p {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero img {
+        height: 40vh;
+      }
+
+      .hero .content {
+        margin-top: -50px;
+        padding: 14px 16px;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+

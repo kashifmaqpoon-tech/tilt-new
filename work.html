@@ -1,5 +1,24 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Work — TILT</title><link rel="stylesheet" href="assets/css/style.css"></head><body><header class="header"><div class="brand"><img src="https://8upload.com/image/6906889b4bd0d/tilt_white.png" alt="TILT logo"></div><nav class="nav"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="work.html">Work</a><a href="contact.html" class="btn btn-dark">Contact</a></nav></header>
 <main style="padding-top:120px"><section class="section"><div style="max-width:1200px;margin:0 auto"><h1>Our Work in Motion</h1><p>Every project we take on tilts perspectives — pushing creative boundaries to drive business impact.</p>
+
+<!-- ✅ Work Page Slider (reuse same project slider) -->
+<section class="section">
+  <div class="project-slider">
+    <div class="project-slides">
+      <div class="project-slide" style="background-image:url('assets/images/slide1.jpg')"></div>
+      <div class="project-slide" style="background-image:url('assets/images/slide2.jpg')"></div>
+      <div class="project-slide" style="background-image:url('assets/images/slide3.jpg')"></div>
+      <div class="project-slide" style="background-image:url('assets/images/slide4.jpg')"></div>
+      <div class="project-slide" style="background-image:url('assets/images/slide5.jpg')"></div>
+    </div>
+
+    <button class="project-prev">‹</button>
+    <button class="project-next">›</button>
+    <div class="project-dots"></div>
+  </div>
+</section>
+
+
 <div class="portfolio-grid" style="margin-top:18px">
 <div class="work-tile"><img src="assets/images/work-01.png" alt="Work 01"><div class="overlay-txt">Project 01</div></div>
 <div class="work-tile"><img src="assets/images/work-02.png" alt="Work 02"><div class="overlay-txt">Project 02</div></div>
@@ -21,4 +40,35 @@
 <div class="work-tile"><img src="assets/images/work-18.png" alt="Work 18"><div class="overlay-txt">Project 18</div></div>
 <div class="work-tile"><img src="assets/images/work-19.png" alt="Work 19"><div class="overlay-txt">Project 19</div></div>
 <div class="work-tile"><img src="assets/images/work-20.png" alt="Work 20"><div class="overlay-txt">Project 20</div></div>
-</div></div></section></main><footer class="footer"><div><strong>Let’s build what’s next — together.</strong></div> <div style="opacity:.9;margin-top:10px">Start a Project — <a href="contact.html">hello@JustTilt.com</a></div> </footer><script src="assets/js/main.js"></script></body></html>
+</div></div></section></main><footer class="footer"><div><strong>Let’s build what’s next — together.</strong></div> <div style="opacity:.9;margin-top:10px">Start a Project — <a href="contact.html">hello@JustTilt.com</a></div> </footer><script src="assets/js/main.js"></script>
+
+
+<script>
+const slides = document.querySelectorAll('.project-slide');
+const total = slides.length;
+const slidesContainer = document.querySelector('.project-slides');
+const dotsContainer = document.querySelector('.project-dots');
+let index = 0;
+
+slides.forEach((_, i) => {
+  const btn = document.createElement('button');
+  if (i === 0) btn.classList.add('active');
+  btn.addEventListener('click', () => showSlide(i));
+  dotsContainer.appendChild(btn);
+});
+const dots = dotsContainer.querySelectorAll('button');
+
+function showSlide(i) {
+  index = (i + total) % total;
+  slidesContainer.style.transform = `translateX(-${index * 100}%)`;
+  dots.forEach(d => d.classList.remove('active'));
+  dots[index].classList.add('active');
+}
+
+document.querySelector('.project-prev').addEventListener('click', () => showSlide(index - 1));
+document.querySelector('.project-next').addEventListener('click', () => showSlide(index + 1));
+setInterval(() => showSlide(index + 1), 5000);
+</script>
+
+
+</body></html>
